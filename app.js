@@ -48,6 +48,12 @@ const request1 = https.request(url, options, (response) => { // make a request t
     });
 }); 
 
+if(express.response.statusCode === 200) { // if the request is successful
+    res.sendFile(__dirname + '/success.html'); // send success.html file
+} else {
+    res.sendFile(__dirname + '/failure.html'); // else send failure.html file
+}
+
 request1.write(jsonData); // write the data to the mailchimp server
 request1.end(); // end the request
 
